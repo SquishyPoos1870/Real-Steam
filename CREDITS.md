@@ -1,4 +1,54 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.20
+Date: 15.06.2026
+  Bugfixes:
+    - Fixed a critical bug that disabled all steam effects on Factorio 2.0: prototype existence checks used the removed 1.1 API game.entity_prototypes, which always failed and left the scan list empty. Now uses the 2.0 prototypes.entity table.
+  Notes:
+    - No IR3, offshore-pump, or Crushing Industry code/assets are copied. This remains a clean compatibility layer.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.19
+Date: 15.06.2026
+  Bugfixes:
+    - Hardened all runtime handlers with protected calls so unexpected third-party entity behaviour is logged and skipped instead of causing a non-recoverable error.
+    - Reworked optional compatibility scanning to build the scan list only from loaded prototypes before scanning surfaces.
+    - Added safer fluidbox reads for steam-powered machines, pipes, pumps, and tanks from mixed IR3 dependency sets.
+    - IR3 steam-powered machines now require actual steam in their fluidbox before Real Steam emits extra vapour.
+    - Changed IR3 and related compatibility dependencies to hidden optional load-order hints so Real Steam does not present those mods as required.
+  Notes:
+    - This remains a clean compatibility layer. No IR3, offshore-pump, or Crushing Industry code/assets are copied.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.18
+Date: 15.06.2026
+  Bugfixes:
+    - Fixed a non-recoverable crash during rescans when an optional IR3 steamworks prototype name is not actually loaded in the save.
+    - Real Steam now checks game.entity_prototypes before every exact-name scan, so missing compatibility prototypes are skipped safely.
+    - Added copper pipe / copper pump compatibility names as safe steam-carrying pipe targets; they only emit if they actually contain steam.
+  Notes:
+    - This is a runtime safety patch for mixed IR3 / partial IR3 asset-pack setups. No IR3 code or assets are copied.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.17
+Date: 15.06.2026
+  Changes:
+    - Added a safety pass for entity removal events so invalid raised/destroy events from other mods cannot crash cleanup.
+    - Optimised rescans to search exact target prototype names instead of broad entity types, which is safer for large IR3 maps.
+    - Updated public notes to mention IR3 steamworks compatibility.
+  Notes:
+    - No IR3 code or assets are copied. Compatibility remains exact-name detection only.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.16
+Date: 15.06.2026
+  Changes:
+    - Added compatibility for IR3 Assets: steamworks steam infrastructure and steam-powered machines.
+    - Real Steam now detects IR3 steam pipes, short underground steam pipes, steam pumps, small steam tanks, copper boilers, and steam-powered machines by exact prototype name.
+    - Kept IR3 support as a clean compatibility layer with no copied IR3 code or assets.
+  Notes:
+    - Existing vanilla / Space Age behaviour is unchanged.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.15
 Date: 13.06.2026
   Changes:

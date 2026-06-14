@@ -1,6 +1,6 @@
 {
   "name": "real-steam",
-  "version": "1.0.15",
+  "version": "1.0.20",
   "title": "Real Steam",
   "author": "Squishy1870",
   "contact": "",
@@ -8,7 +8,12 @@
   "factorio_version": "2.0",
   "dependencies": [
     "base >= 2.0.0",
-    "? space-age"
+    "? space-age",
+    "(?) IR3_Assets_steamworks >= 0.5.4",
+    "(?) offshore-burner",
+    "(?) offshore_pump_require_power",
+    "(?) IR3_Assets_crushing_industry",
+    "(?) crushing-industry"
   ],
-  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Adds controlled vents, light pipe leaks, cleaner industrial steam visuals, a demo link, and a refreshed thumbnail for Factorio 2.0."
+  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Adds controlled vents, light pipe leaks, cleaner industrial steam visuals, and crash-safe optional compatibility for IR3 Assets: steamworks and related dependency sets."
 }

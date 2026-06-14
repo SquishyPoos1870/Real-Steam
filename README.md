@@ -24,7 +24,7 @@ Boilers, heat exchangers, steam engines, and steam turbines can emit additional 
 
 The goal is not to turn your base into a smoke cloud — it is to make steam systems feel more mechanical, active, and believable while still fitting the normal Factorio style.
 
-This Factorio 2.0 version includes cleaner runtime handling, improved rescanning, better entity tracking, and more controlled leak behaviour so the effect stays immersive without becoming messy.
+This Factorio 2.0 version includes cleaner runtime handling, improved rescanning, better entity tracking, more controlled leak behaviour, and optional compatibility for IR3 Assets: steamworks so the effect stays immersive without becoming messy.
 
 ---
 
@@ -44,6 +44,7 @@ This Factorio 2.0 version includes cleaner runtime handling, improved rescanning
 - ♻️ Clean entity tracking for built, mined, destroyed, cloned, and revived entities
 - 🔄 Includes `/real-steam-rescan` admin command
 - ✅ Factorio 2.0 compatible
+- ✅ IR3 Assets: steamworks compatibility
 - 🧼 Cleaned and repackaged for modern Factorio
 
 ---
@@ -132,3 +133,10 @@ This package includes:
 ## 📜 License
 
 This mod is licensed under the **GNU General Public License v3.0**. See `LICENSE` for the full license text.
+
+### Compatibility
+
+Real Steam 1.0.19 adds crash-safe compatibility for **IR3 Assets: steamworks**. When that mod is installed, Real Steam can add ambient steam to IR3 steam pipes, short underground steam pipes, steam pumps, small steam tanks, copper boilers, and steam-powered machines without copying IR3 code or assets.
+
+
+Compatibility note: missing or disabled optional IR3 prototype names are skipped safely at runtime, so partial IR3 asset-pack setups should not crash Real Steam.
