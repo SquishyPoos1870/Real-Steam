@@ -31,16 +31,23 @@ data:extend({
   },
   {
     type = "bool-setting",
+    name = "real-steam-quality-reduces-leaks",
+    setting_type = "runtime-global",
+    default_value = true,
+    order = "e[quality-reduces-leaks]"
+  },
+  {
+    type = "bool-setting",
     name = "real-steam-weather-integration",
     setting_type = "runtime-global",
     default_value = true,
-    order = "e[weather-integration]"
+    order = "f[weather-integration]"
   },
   {
     type = "bool-setting",
     name = "real-steam-replace-boiler-smoke",
     setting_type = "startup",
     default_value = false,
-    order = "f[boiler-smoke]"
+    order = "g[boiler-smoke]"
   }
 })

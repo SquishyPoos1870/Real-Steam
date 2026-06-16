@@ -1,6 +1,6 @@
 {
   "name": "real-steam",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "title": "Real Steam",
   "author": "Squishy1870",
   "contact": "",
@@ -12,5 +12,5 @@
     "? real-rain",
     "? real-wind"
   ],
-  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Adds controlled vents, light pipe leaks, and optional Real Rain / Real Wind integration so storms push vapour naturally while the mod still works stand-alone."
+  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Higher-quality Space Age equipment can now show fewer visual steam leaks, with optional Real Rain / Real Wind integration for storm-driven vapour."
 }

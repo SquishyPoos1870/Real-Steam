@@ -37,6 +37,7 @@ This Factorio 2.0 version includes cleaner runtime handling, improved rescanning
   - Steam Turbines
 
 - 🔧 Optional steam pipe leaks
+- ⭐ Higher-quality equipment can show fewer visual steam leaks
 - 🔥 Optional boiler smoke replacement
 - 🌫️ Fuller steam systems can vent a bit more heavily
 - 🧩 Pipe-to-ground joins can act as natural leak points
@@ -57,6 +58,7 @@ This mod includes runtime settings so you can tune the look to your liking:
 | Steam Density | Controls how strong and frequent the extra effects are |
 | Include Boilers | Enables extra steam effects for boilers |
 | Include Steam Pipes | Enables steam leaks/hiss effects on pipes |
+| Quality Reduces Steam Leaks | Makes uncommon, rare, epic, and legendary steam equipment look progressively cleaner |
 | Replace Boiler Smoke | Replaces the default boiler smoke style with the modded effect |
 
 **Recommended starting point:**
@@ -73,6 +75,7 @@ This gives a cleaner, more natural industrial look.
 ## 🧪 Behaviour Notes
 
 - Steam engines and turbines only emit extra steam when they are actually working.
+- If Quality scaling is enabled, normal quality keeps the standard effect while uncommon, rare, epic, and legendary equipment emits fewer visual leaks.
 - Pipe leaks are meant to be subtle and atmospheric, not constant across every pipe.
 - Pipe-to-ground sections are more likely to show light venting or hiss points.
 - The mod is designed to stay lightweight and practical for normal gameplay.
@@ -111,6 +114,10 @@ It is meant to sit somewhere between **vanilla Factorio** and a more immersive i
 Factorio is made by Wube Software. This is an independent fan-made mod and is not affiliated with or endorsed by Wube Software.
 
 ---
+
+## Optional Quality Scaling
+
+With the new Quality-aware setting, better-quality steam equipment can visually leak less. Normal quality keeps the normal Real Steam look, while uncommon, rare, epic, and legendary equipment progressively emit fewer puffs and wisps. This gives quality machines a cleaner, better-maintained feel without changing gameplay balance.
 
 ## 📜 License
 
