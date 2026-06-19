@@ -1,6 +1,6 @@
 {
   "name": "real-steam",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "title": "Real Steam",
   "author": "Squishy1870",
   "contact": "",
@@ -12,5 +12,5 @@
     "? real-rain",
     "? real-wind"
   ],
-  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Higher-quality Space Age equipment can now show fewer visual steam leaks, with optional Real Rain / Real Wind integration for storm-driven vapour."
+  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Includes cleaner weather-integration caching for Real Rain / Real Wind, optional Quality leak scaling, and controlled storm-driven vapour."
 }

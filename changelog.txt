@@ -1,0 +1,228 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.18
+Date: 2026-06-20
+  Changes:
+    - Added per-surface/tick caching for Real Rain / Real Wind weather context checks.
+    - Reduced repeated remote calls while processing many steam entities on large bases.
+    - Refreshed locale wording for the steam density setting so it no longer references an old release number.
+  Notes:
+    - No balance change to steam visuals; this is a small performance and package polish pass.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.17
+Date: 2026-06-16
+  Features:
+    - Added optional Space Age / Quality-aware steam leak scaling.
+    - Higher-quality steam equipment now emits fewer Real Steam visual leaks and wisps.
+    - Normal quality keeps the standard Real Steam look; uncommon, rare, epic, and legendary progressively look cleaner.
+  Settings:
+    - Added runtime setting: Quality reduces steam leaks.
+  Compatibility:
+    - Safe when Space Age / Quality is not active; entities without quality data are treated as normal quality.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.16
+Date: 2026-06-14
+  Features:
+    - Added optional Real Rain / Real Wind integration.
+    - Storms and gusts can now pull steam vapour and pipe wisps more naturally.
+    - Added wind-aware pipe vapour variants for bad weather.
+  Compatibility:
+    - Fully stand-alone when weather mods are not installed.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.15
+Date: 13.06.2026
+  Changes:
+    - Finalised GNU GPLv3 license packaging for the Mod Portal release.
+    - Kept the updated Real Steam thumbnail/presentation assets.
+    - No gameplay, balance, or performance changes.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.14
+Date: 13.06.2026
+  Changes:
+    - Updated mod thumbnail/presentation assets for the Mod Portal.
+    - Corrected packaged license text to GNU GPLv3.
+    - No gameplay, balance, or performance changes.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.13
+Date: 13. 06. 2026
+  Changes:
+    - Added the new Real Steam thumbnail artwork for the Mod Portal page.
+    - Updated the package version for a clean Mod Portal refresh upload.
+  Notes:
+    - No gameplay logic, balance, or performance changes from 1.0.12.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 13. 06. 2026
+  Changes:
+    - Added a GitHub/source homepage link to the mod metadata.
+    - Added a Mod Portal demo video section for the Real Steam showcase clip.
+    - Refreshed the README and Mod Portal description files for the public page update.
+  Notes:
+    - No gameplay logic changes from 1.0.11; this is a presentation and Mod Portal refresh release.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 07. 06. 2026
+  Changes:
+    - Removed the optional true-real-lighting dependency so Real Steam can be uploaded and used standalone.
+  Notes:
+    - No gameplay or visual changes from 1.0.10; this is a dependency/package cleanup release.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 07. 06. 2026
+  Changes:
+    - Added a polished Mod Portal description in the same clean public-release style as the Powered Concrete page.
+    - Updated README with the new feature layout, settings table, behaviour notes, design goal, and credits section.
+    - Added a Markdown copy of the Mod Portal description for easier GitHub/source uploads.
+    - Updated info.json description for a cleaner upload summary.
+  Notes:
+    - No gameplay logic changes from 1.0.9; this is a presentation/package polish release.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 07. 06. 2026
+  Changes:
+    - Cleaned up the 1.0.8 visual pass after in-game testing showed too many long, wind-blown smoke trails.
+    - Reduced boiler/pipe smoke size, opacity, and lifetime so the effect stays closer to the machines.
+    - Pipe leaks now use selected leak candidates so whole pipe runs no longer smoke at once.
+    - Straight pipes are quieter; pipe-to-ground joins remain the main visible pressure leak points.
+    - Removed the extra full-pipe pressure puff from the rollback pass because it made pipes look messy.
+    - Pipe leak positions now hold near small edge/coupler points for a cleaner worn-seal look.
+  Notes:
+    - Balanced is now the recommended test setting for visible but controlled pipe leaks.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 07. 06. 2026
+  Changes:
+    - Rolled pipe leak behaviour back to the cleaner 1.0.4-style fuller-pipe leak pass.
+    - Removed the experimental persistent hiss/stream leak logic from later test builds.
+    - Kept the stronger pipe-to-ground/full-pipe leak tuning from 1.0.4 because it looked cleaner in-game.
+  Notes:
+    - This is the recommended rollback build after the 1.0.5 to 1.0.7 pipe leak experiments looked too puffy/noisy.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 07. 06. 2026
+  Changes:
+    - Made steam pipe leaks noticeably fuller and more active.
+    - Full steam pipes now leak more often than nearly empty steam pipes.
+    - Pipe-to-ground joins now get a small extra leak boost because they read better as pressure points.
+    - Added a stronger full-pipe leak puff prototype for busy steam lines.
+    - Added a rare extra pressure puff on very full steam pipes, capped and deterministic for multiplayer/UPS safety.
+    - Added English locale text for Real Steam settings.
+  Notes:
+    - Low density is still recommended for very large public servers; Balanced and High now make pipe leaks much more visible.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 07. 06. 2026
+  Changes:
+    - Improved runtime tracking so large bases cycle through tracked steam entities instead of favouring the same early table entries.
+    - Added immediate rescanning when Real Steam runtime settings are changed.
+    - Added cleanup for mined, robot-mined, destroyed, cloned, revived, and script-created entities.
+    - Added /real-steam-rescan admin command for quick manual rebuilds after unusual modded map changes.
+    - Reduced package weight by resizing the thumbnail to a Mod Portal-friendly square icon.
+    - Added README, credits, and license files for a cleaner public release package.
+  Bugfixes:
+    - Added a safety check before replacing boiler smoke prototypes.
+    - Kept the steam-engine/turbine idle/disconnected fix from 1.0.2.
+
+Version: 1.0.2
+Date: 2026-05-16
+  Bugfixes:
+    - Fixed steam engines and steam turbines emitting steam while disconnected or idle.
+    - Steam engines/turbines now require working status and actual electric output when Factorio exposes that value.
+    - Boilers and heat exchangers still only emit while working.
+  Notes:
+    - Pipe leaks still appear when pipes contain steam, because they are meant to represent tiny static pipe leaks.
+
+Version: 1.0.0
+Date: 2026-05-16
+  Features:
+    - First full release of Real Steam.
+    - Adds subtle steam ambience to working steam engines, steam turbines, boilers, and heat exchangers.
+    - Adds tiny random steam leaks to pipes and pipe-to-ground sections carrying steam.
+    - Includes runtime settings for effect density, boiler effects, and pipe leaks.
+    - Includes an optional startup setting to replace vanilla boiler exhaust smoke with a softer steam-style puff.
+  Notes:
+    - Default tuning is aimed at light visual flair, not heavy smoke.
+    - Compatible with Factorio 2.0 and Space Age.
+
+Version: 0.1.8
+Date: 2026-05-16
+  Changes:
+    - Made steam pipe leak positions fully random-looking around pipe edges and couplers.
+    - Replaced fixed pipe leak points with deterministic pseudo-random leak points.
+    - Reduced pipe leak puff size by roughly half again.
+    - Reduced pipe leak opacity, duration, and second micro-wisp chance.
+    - Machine steam effects are unchanged.
+
+Version: 0.1.7
+Date: 2026-05-16
+  Changes:
+    - Changed steam pipe leaks into tiny random dribble-style wisps.
+    - Added a second micro-wisp effect that appears occasionally near the leak point.
+    - Pipe leak points now shift slowly between small coupler/edge positions.
+    - Kept machine steam subtle and unchanged.
+
+Version: 0.1.6
+Date: 2026-05-16
+  Changes:
+    - Reduced steam pipe leak size and opacity.
+    - Shortened pipe leak lifetime so leaks look like tiny little wisps.
+    - Reduced pipe leak spawn frequency.
+    - Tightened pipe leak jitter so leaks sit closer to the pipe.
+
+Version: 0.1.5
+Date: 2026-05-16
+  Changes:
+    - Made steam pipe leaks easier to see.
+    - Increased pipe leak opacity, size, and lifetime slightly.
+    - Increased pipe leak spawn frequency while keeping machine steam subtle.
+    - Improved pipe tracking for entities that may not expose a unit number.
+    - Pipe leaks now spawn from small offset points so they look more like tiny connection leaks.
+
+Version: 0.1.4
+Date: 2026-05-16
+  Bugfixes:
+    - Fixed a Lua syntax error caused by unsupported floor-division syntax in the pipe leak timing logic.
+    - Tiny steam pipe leaks from 0.1.3 are kept, but now use safe math.floor timing.
+
+Version: 0.1.3
+Date: 2026-05-16
+  Changes:
+    - Toned all machine steam effects down again for a very subtle ambient result.
+    - Added tiny steam leaks to pipes and pipe-to-ground sections that contain steam.
+    - Added a runtime setting to enable or disable steam pipe leaks.
+    - Reduced spawn frequency again so the mod acts as light visual flair.
+
+Version: 0.1.2
+Date: 2026-05-16
+  Changes:
+    - Reduced steam effect intensity across all machine types.
+    - Lowered puff opacity, size, and duration for a subtler visual result.
+    - Reduced spawn frequency so steam acts more like light visual flair.
+    - Changed default density to Low.
+
+Version: 0.1.1
+Date: 2026-05-16
+  Changes:
+    - Improved steam placement around machines.
+    - Steam vent offsets now respect entity direction instead of using one fixed position.
+    - Reduced random jitter slightly so steam sits cleaner on the machine vent points.
+
+Version: 0.1.0
+Date: 2026-05-16
+  Features:
+    - Added custom soft steam, pressure puff, turbine mist, and cold vapour smoke prototypes.
+    - Added lightweight runtime steam effects for working steam engines, steam turbines, boilers, and heat exchangers.
+    - Added runtime steam density setting: Low, Balanced, High.
+    - Added runtime setting to include or exclude boilers.
+    - Added optional startup setting to replace vanilla boiler smoke with a softer steam-style puff.
