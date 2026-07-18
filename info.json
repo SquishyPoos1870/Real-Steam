@@ -1,16 +1,18 @@
 {
   "name": "real-steam",
-  "version": "1.0.18",
+  "version": "1.0.24",
   "title": "Real Steam",
   "author": "Squishy1870",
   "contact": "",
   "homepage": "https://github.com/SquishyPoos1870/-Real-Steam",
-  "factorio_version": "2.0",
+  "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.0.0",
+    "base >= 2.1.0",
     "? space-age",
     "? real-rain",
-    "? real-wind"
+    "? real-wind",
+    "? IR3_Assets_steamworks >= 0.5.4",
+    "? Krastorio2 >= 2.0.0"
   ],
-  "description": "Extra steam ambience for working steam machines, boilers, heat exchangers, and steam pipes. Includes cleaner weather-integration caching for Real Rain / Real Wind, optional Quality leak scaling, and controlled storm-driven vapour."
+  "description": "Extra steam ambience for Factorio 2.1 steam machines, boilers, heat exchangers, steam pipes, IR3 Assets: steamworks, and Krastorio 2 steam equipment. Includes hardened event tracking, optional Quality leak scaling, and controlled storm-driven vapour."
 }

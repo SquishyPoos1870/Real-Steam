@@ -1,6 +1,6 @@
 # Real Steam
 
-**Real Steam** adds extra steam ambience to boilers, steam engines, steam turbines, heat exchangers, and steam pipes so your factory feels more alive.
+**Real Steam** adds extra steam ambience to boilers, steam engines, steam turbines, heat exchangers, steam pipes, IR3 steamworks equipment, and supported Krastorio 2 steam equipment so your factory feels more alive.
 
 Instead of everything looking perfectly sealed and static, steam systems can now hiss, vent, and leak lightly under pressure.
 
@@ -24,7 +24,7 @@ Boilers, heat exchangers, steam engines, and steam turbines can emit additional 
 
 The goal is not to turn your base into a smoke cloud — it is to make steam systems feel more mechanical, active, and believable while still fitting the normal Factorio style.
 
-This Factorio 2.0 version includes cleaner runtime handling, improved rescanning, better entity tracking, and more controlled leak behaviour so the effect stays immersive without becoming messy.
+This Factorio 2.1 version includes cleaner runtime handling, improved rescanning, better entity tracking, and more controlled leak behaviour so the effect stays immersive without becoming messy.
 
 ---
 
@@ -44,8 +44,27 @@ This Factorio 2.0 version includes cleaner runtime handling, improved rescanning
 - ⚙️ Runtime settings for effect density and enabled sources
 - ♻️ Clean entity tracking for built, mined, destroyed, cloned, and revived entities
 - 🔄 Includes `/real-steam-rescan` admin command
-- ✅ Factorio 2.0 compatible
+- ✅ Factorio 2.1 compatible
 - 🧼 Cleaned and repackaged for modern Factorio
+- 🛡️ Hardened event tracking for Factorio 2.1 build, rotation, blueprint, and Space Platform workflows
+
+---
+
+## 🧩 IR3 Assets: steamworks compatibility
+
+Real Steam now has optional support for **IR3 Assets: steamworks**. When that mod is installed, Real Steam can track its steam pipes, steam pipe-to-ground variants, copper boiler, steam pump, steam tank, and steam-powered machines without requiring IR3 assets to be bundled inside Real Steam.
+
+This is only a compatibility layer; Real Steam does **not** include or redistribute IR3 graphical assets.
+
+---
+
+## 🧩 Krastorio 2 compatibility
+
+Real Steam now has optional support for **Krastorio 2**. When K2 is installed, Real Steam can track K2's advanced steam turbine, steel pipe, steel pipe-to-ground, steel pump, and large storage tanks when they contain steam.
+
+The K2 gas power station is intentionally not treated as a steam machine because it is a fluid-fuel generator rather than a steam system.
+
+This is only a compatibility layer; Real Steam does **not** include or redistribute Krastorio 2 graphical assets.
 
 ---
 
