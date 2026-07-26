@@ -2,16 +2,86 @@ local TARGET_TYPES = {
   ["generator"] = true,
   ["boiler"] = true,
   ["pipe"] = true,
-  ["pipe-to-ground"] = true
+  ["pipe-to-ground"] = true,
+  ["assembling-machine"] = true,
+  ["furnace"] = true,
+  ["mining-drill"] = true,
+  ["lab"] = true,
+  ["inserter"] = true,
+  ["pump"] = true,
+  ["storage-tank"] = true,
+  ["beacon"] = true
 }
 
 local TARGET_NAMES = {
+  -- Base / Space Age steam network.
   ["steam-engine"] = true,
   ["steam-turbine"] = true,
   ["boiler"] = true,
   ["heat-exchanger"] = true,
   ["pipe"] = true,
-  ["pipe-to-ground"] = true
+  ["pipe-to-ground"] = true,
+
+  -- IR3 Assets: steamworks compatibility.
+  ["copper-boiler"] = true,
+  ["steam-pipe"] = true,
+  ["steam-pipe-to-ground"] = true,
+  ["steam-pipe-to-ground-short"] = true,
+  ["steam-pump"] = true,
+  ["small-storage-tank-steam"] = true,
+  ["steam-barrelling-machine"] = true,
+  ["steam-unbarrelling-machine"] = true,
+  ["steam-assembling-machine"] = true,
+  ["small-steam-assembling-machine"] = true,
+  ["steam-crusher"] = true,
+  ["steam-mining-drill"] = true,
+  ["steam-lab"] = true,
+  ["steam-inserter"] = true,
+  ["long-handed-steam-inserter"] = true,
+  ["steam-bulk-inserter"] = true,
+  ["steam-beacon"] = true,
+
+  -- Krastorio 2 compatibility.
+  ["kr-advanced-steam-turbine"] = true,
+  ["kr-steel-pipe"] = true,
+  ["kr-steel-pipe-to-ground"] = true,
+  ["kr-steel-pump"] = true,
+  ["kr-big-storage-tank"] = true,
+  ["kr-huge-storage-tank"] = true
+}
+
+local PIPE_LIKE_NAMES = {
+  ["pipe"] = true,
+  ["pipe-to-ground"] = true,
+  ["steam-pipe"] = true,
+  ["steam-pipe-to-ground"] = true,
+  ["steam-pipe-to-ground-short"] = true,
+  ["steam-pump"] = true,
+  ["small-storage-tank-steam"] = true,
+  ["kr-steel-pipe"] = true,
+  ["kr-steel-pipe-to-ground"] = true,
+  ["kr-steel-pump"] = true,
+  ["kr-big-storage-tank"] = true,
+  ["kr-huge-storage-tank"] = true
+}
+
+local PIPE_TO_GROUND_LIKE_NAMES = {
+  ["pipe-to-ground"] = true,
+  ["steam-pipe-to-ground"] = true,
+  ["steam-pipe-to-ground-short"] = true,
+  ["kr-steel-pipe-to-ground"] = true
+}
+
+local BOILER_LIKE_NAMES = {
+  ["boiler"] = true,
+  ["heat-exchanger"] = true,
+  ["copper-boiler"] = true
+}
+
+local STEAM_GENERATOR_NAMES = {
+  ["steam-engine"] = true,
+  ["steam-turbine"] = true,
+  ["kr-advanced-steam-turbine"] = true
 }
 
 local SMOKE_BY_NAME = {
@@ -20,7 +90,32 @@ local SMOKE_BY_NAME = {
   ["boiler"] = "real-steam-pressure-puff",
   ["heat-exchanger"] = "real-steam-cold-vapour",
   ["pipe"] = "real-steam-pipe-whisper",
-  ["pipe-to-ground"] = "real-steam-pipe-whisper"
+  ["pipe-to-ground"] = "real-steam-pipe-whisper",
+
+  ["copper-boiler"] = "real-steam-pressure-puff",
+  ["steam-pipe"] = "real-steam-pipe-whisper",
+  ["steam-pipe-to-ground"] = "real-steam-pipe-whisper",
+  ["steam-pipe-to-ground-short"] = "real-steam-pipe-whisper",
+  ["steam-pump"] = "real-steam-pipe-whisper",
+  ["small-storage-tank-steam"] = "real-steam-pipe-whisper",
+  ["steam-barrelling-machine"] = "real-steam-soft-vapour",
+  ["steam-unbarrelling-machine"] = "real-steam-soft-vapour",
+  ["steam-assembling-machine"] = "real-steam-soft-vapour",
+  ["small-steam-assembling-machine"] = "real-steam-soft-vapour",
+  ["steam-crusher"] = "real-steam-pressure-puff",
+  ["steam-mining-drill"] = "real-steam-pressure-puff",
+  ["steam-lab"] = "real-steam-soft-vapour",
+  ["steam-inserter"] = "real-steam-soft-vapour",
+  ["long-handed-steam-inserter"] = "real-steam-soft-vapour",
+  ["steam-bulk-inserter"] = "real-steam-soft-vapour",
+  ["steam-beacon"] = "real-steam-cold-vapour",
+
+  ["kr-advanced-steam-turbine"] = "real-steam-turbine-mist",
+  ["kr-steel-pipe"] = "real-steam-pipe-whisper",
+  ["kr-steel-pipe-to-ground"] = "real-steam-pipe-whisper",
+  ["kr-steel-pump"] = "real-steam-pipe-whisper",
+  ["kr-big-storage-tank"] = "real-steam-pipe-whisper",
+  ["kr-huge-storage-tank"] = "real-steam-pipe-whisper"
 }
 
 local PIPE_DRIBBLE_SMOKE_NAME = "real-steam-pipe-dribble"
@@ -36,7 +131,34 @@ local LOCAL_VENT_OFFSET_BY_NAME = {
   ["boiler"] = {0.45, -0.72},
   ["heat-exchanger"] = {0.35, -0.88},
   ["pipe"] = {0.00, 0.00},
-  ["pipe-to-ground"] = {0.00, -0.15}
+  ["pipe-to-ground"] = {0.00, -0.15},
+
+  -- IR3 Assets: steamworks.
+  ["copper-boiler"] = {0.00, -0.80},
+  ["steam-pipe"] = {0.00, 0.00},
+  ["steam-pipe-to-ground"] = {0.00, -0.15},
+  ["steam-pipe-to-ground-short"] = {0.00, -0.15},
+  ["steam-pump"] = {0.00, -0.24},
+  ["small-storage-tank-steam"] = {0.00, -0.42},
+  ["steam-barrelling-machine"] = {0.00, -0.78},
+  ["steam-unbarrelling-machine"] = {0.00, -0.78},
+  ["steam-assembling-machine"] = {0.00, -0.82},
+  ["small-steam-assembling-machine"] = {0.00, -0.66},
+  ["steam-crusher"] = {0.00, -0.82},
+  ["steam-mining-drill"] = {0.00, -0.92},
+  ["steam-lab"] = {0.00, -0.78},
+  ["steam-inserter"] = {0.00, -0.35},
+  ["long-handed-steam-inserter"] = {0.00, -0.35},
+  ["steam-bulk-inserter"] = {0.00, -0.35},
+  ["steam-beacon"] = {0.00, -0.78},
+
+  -- Krastorio 2.
+  ["kr-advanced-steam-turbine"] = {0.00, -1.35},
+  ["kr-steel-pipe"] = {0.00, 0.00},
+  ["kr-steel-pipe-to-ground"] = {0.00, -0.15},
+  ["kr-steel-pump"] = {0.00, -0.24},
+  ["kr-big-storage-tank"] = {0.00, -0.52},
+  ["kr-huge-storage-tank"] = {0.00, -0.92}
 }
 
 local function ensure_storage()
@@ -80,6 +202,46 @@ local function is_target(entity)
   return entity and entity.valid and TARGET_TYPES[entity.type] and TARGET_NAMES[entity.name]
 end
 
+local function is_pipe_like(entity)
+  return entity and entity.valid and PIPE_LIKE_NAMES[entity.name] == true
+end
+
+local function is_pipe_to_ground_like(entity)
+  return entity and entity.valid and PIPE_TO_GROUND_LIKE_NAMES[entity.name] == true
+end
+
+local function is_boiler_like(entity)
+  return entity and entity.valid and BOILER_LIKE_NAMES[entity.name] == true
+end
+
+local function is_steam_generator(entity)
+  return entity and entity.valid and STEAM_GENERATOR_NAMES[entity.name] == true
+end
+
+local function entity_fluid_amount(entity, fluid_name)
+  if not entity or not entity.valid then return 0 end
+
+  local ok, amount = pcall(function()
+    return entity.get_fluid_count(fluid_name)
+  end)
+
+  if ok and type(amount) == "number" then
+    return amount
+  end
+
+  return 0
+end
+
+local function entity_has_fluid_storage(entity)
+  if not entity or not entity.valid then return false end
+
+  local ok, capacity = pcall(function()
+    return entity.get_fluid_capacity(1)
+  end)
+
+  return ok and type(capacity) == "number" and capacity > 0
+end
+
 local function entity_key(entity)
   if entity.unit_number then
     return entity.unit_number
@@ -117,19 +279,7 @@ local function leak_float(tick, numeric_index, salt, radius)
 end
 
 local function pipe_steam_amount(entity)
-  if not entity or not entity.valid or not entity.fluidbox or #entity.fluidbox == 0 then
-    return 0
-  end
-
-  local amount = 0
-  for i = 1, #entity.fluidbox do
-    local fluid = entity.fluidbox[i]
-    if fluid and fluid.name == "steam" then
-      amount = amount + (fluid.amount or 0)
-    end
-  end
-
-  return amount
+  return entity_fluid_amount(entity, "steam")
 end
 
 local function pipe_leak_chance(entity, steam_amount)
@@ -153,7 +303,7 @@ local function pipe_leak_chance(entity, steam_amount)
   end
 
   -- Underground joins look like natural pressure/leak points, so they should still read clearly.
-  local join_bonus = entity.name == "pipe-to-ground" and 16 or 0
+  local join_bonus = is_pipe_to_ground_like(entity) and 16 or 0
   local chance = base + fullness_bonus + join_bonus
   if chance > 62 then return 62 end
   return chance
@@ -177,7 +327,7 @@ local function pipe_leak_candidate_limit(entity, steam_amount)
   end
 
   -- Pipe-to-ground sections are the main visible leak points. Straight pipes are quieter.
-  if entity.name == "pipe-to-ground" then
+  if is_pipe_to_ground_like(entity) then
     limit = limit + 42
   end
 
@@ -201,8 +351,8 @@ end
 
 local function register_entity(entity)
   if not is_target(entity) then return end
-  if entity.name == "boiler" and not settings.global["real-steam-include-boilers"].value then return end
-  if (entity.name == "pipe" or entity.name == "pipe-to-ground") and not settings.global["real-steam-include-pipes"].value then return end
+  if is_boiler_like(entity) and not settings.global["real-steam-include-boilers"].value then return end
+  if is_pipe_like(entity) and not settings.global["real-steam-include-pipes"].value then return end
 
   ensure_storage()
   local key = entity_key(entity)
@@ -249,19 +399,8 @@ end
 local function scan_surface(surface)
   if not surface or not surface.valid then return end
 
-  for _, entity in pairs(surface.find_entities_filtered{type = "generator"}) do
-    register_entity(entity)
-  end
-
-  for _, entity in pairs(surface.find_entities_filtered{type = "boiler"}) do
-    register_entity(entity)
-  end
-
-  if settings.global["real-steam-include-pipes"].value then
-    for _, entity in pairs(surface.find_entities_filtered{type = "pipe"}) do
-      register_entity(entity)
-    end
-    for _, entity in pairs(surface.find_entities_filtered{type = "pipe-to-ground"}) do
+  for type_name, _ in pairs(TARGET_TYPES) do
+    for _, entity in pairs(surface.find_entities_filtered{type = type_name}) do
       register_entity(entity)
     end
   end
@@ -296,18 +435,7 @@ local function entity_is_working(entity)
 end
 
 local function entity_has_steam(entity)
-  if not entity or not entity.valid or not entity.fluidbox or #entity.fluidbox == 0 then
-    return false
-  end
-
-  for i = 1, #entity.fluidbox do
-    local fluid = entity.fluidbox[i]
-    if fluid and fluid.name == "steam" and (fluid.amount or 0) > 0.2 then
-      return true
-    end
-  end
-
-  return false
+  return entity_fluid_amount(entity, "steam") > 0.2
 end
 
 local function safe_read(entity, property_name)
@@ -380,15 +508,61 @@ local function passes_quality_visual_gate(tick, numeric_index, scale, salt)
   return leak_roll(tick, numeric_index, salt) < threshold
 end
 
+local REAL_RAIN_STAGE_WEATHER = {
+  drizzle = { storm_factor = 0.65, wind_speed = 0.015 },
+  rain = { storm_factor = 1.00, wind_speed = 0.030 },
+  heavy = { storm_factor = 1.50, wind_speed = 0.055 },
+  storm = { storm_factor = 2.20, wind_speed = 0.090, wind_bucket = "gust" },
+  monsoon = { storm_factor = 3.00, wind_speed = 0.120, wind_bucket = "gust" }
+}
+
 local function real_rain_weather(surface)
   if not setting_enabled("real-steam-weather-integration") then return nil end
   if not (surface and surface.valid) then return nil end
   if not (remote and remote.interfaces and remote.interfaces["real-rain"]) then return nil end
-  if not remote.interfaces["real-rain"]["get_weather"] then return nil end
 
-  local ok, weather = pcall(remote.call, "real-rain", "get_weather", surface.index)
-  if ok and type(weather) == "table" then return weather end
-  return nil
+  local interface = remote.interfaces["real-rain"]
+
+  -- Retain compatibility with older Real Rain builds that exposed a combined weather table.
+  if interface["get_weather"] then
+    local ok, weather = pcall(remote.call, "real-rain", "get_weather", surface.index)
+    if ok and type(weather) == "table" then return weather end
+  end
+
+  -- Current Real Rain exposes small focused calls instead of get_weather.
+  local raining = nil
+  local stage = nil
+  local received_data = false
+
+  if interface["is_raining"] then
+    local ok, value = pcall(remote.call, "real-rain", "is_raining", surface.index)
+    if ok then
+      raining = value == true
+      received_data = true
+    end
+  end
+
+  if interface["stage"] then
+    local ok, value = pcall(remote.call, "real-rain", "stage", surface.index)
+    if ok and type(value) == "string" then
+      stage = string.lower(value)
+      received_data = true
+    end
+  end
+
+  if not received_data then return nil end
+
+  local stage_weather = stage and REAL_RAIN_STAGE_WEATHER[stage] or nil
+  if raining == nil then
+    raining = stage_weather ~= nil
+  end
+
+  return {
+    is_raining = raining,
+    storm_factor = stage_weather and stage_weather.storm_factor or 1,
+    wind_speed = stage_weather and stage_weather.wind_speed or (raining and 0.025 or 0),
+    wind_bucket = stage_weather and stage_weather.wind_bucket or nil
+  }
 end
 
 local function real_wind_data(surface)
@@ -460,10 +634,10 @@ local function steam_generator_is_actually_generating(entity)
   end
 
   -- Steam engines/turbines can still contain steam when disconnected or idle.
-  -- electric_output_flow is the strongest signal that the generator is producing useful power.
-  local output_flow = safe_read(entity, "electric_output_flow")
-  if type(output_flow) == "number" then
-    return output_flow > 0.001
+  -- energy_generated_last_tick is the runtime API signal for actual generator output.
+  local generated_last_tick = safe_read(entity, "energy_generated_last_tick")
+  if type(generated_last_tick) == "number" then
+    return generated_last_tick > 0
   end
 
   -- Fallback for compatibility if the property is unavailable on a modded generator.
@@ -471,15 +645,28 @@ local function steam_generator_is_actually_generating(entity)
 end
 
 local function steam_entity_should_emit(entity)
-  if entity.name == "steam-engine" or entity.name == "steam-turbine" then
+  if is_steam_generator(entity) then
     return steam_generator_is_actually_generating(entity)
   end
 
-  if entity.name == "boiler" or entity.name == "heat-exchanger" then
+  if is_boiler_like(entity) then
     return entity.status == defines.entity_status.working
   end
 
-  return entity_is_working(entity)
+  if not entity_is_working(entity) then
+    return false
+  end
+
+  -- IR3 steamworks has both direct steam-fluid machines and steam-themed
+  -- machines that can be driven by steam-cell style energy. K2 steam support
+  -- is restricted to known steam or pipe/storage entities. If a fluidbox is
+  -- present, require actual steam. If no fluidbox exists, the name whitelist is
+  -- enough to safely allow a small working puff.
+  if entity_has_fluid_storage(entity) then
+    return entity_has_steam(entity)
+  end
+
+  return true
 end
 
 local function density_interval()
@@ -508,7 +695,7 @@ local PIPE_EDGE_LEAK_POINTS = {
 local function pipe_leak_offset(entity, numeric_index, tick)
   -- Pick a small edge/coupler position and hold that general area for a while.
   -- This looks cleaner than moving the leak all over the pipe body every puff.
-  if entity.name == "pipe-to-ground" then
+  if is_pipe_to_ground_like(entity) then
     local base = rotate_offset({0.00, -0.23}, entity.direction)
     local slow_tick = math.floor(tick / 720) * 720
     local side = leak_roll(slow_tick, numeric_index, 307) < 50 and -1 or 1
@@ -527,11 +714,11 @@ local function pipe_leak_offset(entity, numeric_index, tick)
 end
 
 local function spawn_steam(entity, tick, key)
-  if entity.name == "boiler" and not settings.global["real-steam-include-boilers"].value then
+  if is_boiler_like(entity) and not settings.global["real-steam-include-boilers"].value then
     return
   end
 
-  local is_pipe = (entity.name == "pipe" or entity.name == "pipe-to-ground")
+  local is_pipe = is_pipe_like(entity)
   local numeric_index = entity_numeric_index(entity, key)
   local pipe_steam = 0
   local context = weather_context(entity.surface, tick)
@@ -539,11 +726,12 @@ local function spawn_steam(entity, tick, key)
 
   if is_pipe then
     if not settings.global["real-steam-include-pipes"].value then
-      return
+      return false
     end
     pipe_steam = pipe_steam_amount(entity)
     if pipe_steam <= 0.2 then
-      return
+      -- Empty/non-steam pipes are cheap probes and should not consume the active-effect budget.
+      return false
     end
 
     -- Clean leak pass: only selected pipe sections are allowed to leak, then fullness controls frequency.
@@ -563,8 +751,6 @@ local function spawn_steam(entity, tick, key)
       leak_chance = math.min(76, leak_chance + math.floor(4 + context.wind_bonus * 3))
     end
 
-    leak_chance = math.max(1, math.floor(leak_chance * quality_scale))
-
     if leak_roll(tick, numeric_index, 503) >= leak_chance then
       return
     end
@@ -582,7 +768,7 @@ local function spawn_steam(entity, tick, key)
   local pipe_tier = 0
   if is_pipe then
     pipe_tier = pipe_fullness_tier(pipe_steam)
-    if pipe_tier >= 2 or entity.name == "pipe-to-ground" then
+    if pipe_tier >= 2 or is_pipe_to_ground_like(entity) then
       smoke_name = PIPE_FULL_LEAK_SMOKE_NAME
     end
 
@@ -620,7 +806,7 @@ local function spawn_steam(entity, tick, key)
   if is_pipe then
     local roll = leak_roll(tick, numeric_index, 5)
     local extra_wisp_chance = 7 + (pipe_tier * 5)
-    if entity.name == "pipe-to-ground" then
+    if is_pipe_to_ground_like(entity) then
       extra_wisp_chance = extra_wisp_chance + 6
     end
     extra_wisp_chance = math.floor(extra_wisp_chance * quality_scale)
@@ -635,6 +821,8 @@ local function spawn_steam(entity, tick, key)
       }
     end
   end
+
+  return true
 end
 
 local function process_tracked_entities(tick)
@@ -650,15 +838,20 @@ local function process_tracked_entities(tick)
   local budget = update_budget()
   local processed = 0
   local visited = 0
+  -- Probe several inactive pipes per active-effect slot without allowing an all-pipe
+  -- factory to turn this update into an unbounded full scan.
+  local visit_budget = math.min(total, budget * 4)
   local had_stale_entries = false
 
-  while processed < budget and visited < total do
+  while processed < budget and visited < visit_budget do
     local key = keys[cursor]
     local entity = storage.real_steam_entities[key]
 
     if entity and entity.valid then
-      spawn_steam(entity, tick, key)
-      processed = processed + 1
+      local counted = spawn_steam(entity, tick, key)
+      if counted ~= false then
+        processed = processed + 1
+      end
     else
       storage.real_steam_entities[key] = nil
       storage.real_steam_key_set[key] = nil
@@ -672,7 +865,7 @@ local function process_tracked_entities(tick)
 
   storage.real_steam_cursor = cursor
 
-  if had_stale_entries and (tick % 1800 == 0) then
+  if had_stale_entries then
     compact_entity_keys()
   end
 end
@@ -685,6 +878,39 @@ local function on_entity_removed(event)
   unregister_entity(event.entity)
 end
 
+local function safe_on_event(event_id, handler)
+  -- Factorio 2.1 adds and adjusts some build/update events. Guarding here keeps the mod
+  -- safe across the 2.1 experimental line and avoids hard failures if an event is absent.
+  if event_id then
+    script.on_event(event_id, handler)
+  end
+end
+
+local function on_surface_added(event)
+  ensure_storage()
+  local surface = event.surface_index and game.get_surface(event.surface_index) or nil
+  if surface then
+    scan_surface(surface)
+  end
+end
+
+local function prune_invalid_entities()
+  ensure_storage()
+
+  local found_invalid = false
+  for key, entity in pairs(storage.real_steam_entities) do
+    if not (entity and entity.valid) then
+      storage.real_steam_entities[key] = nil
+      storage.real_steam_key_set[key] = nil
+      found_invalid = true
+    end
+  end
+
+  if found_invalid then
+    compact_entity_keys()
+  end
+end
+
 script.on_init(function()
   ensure_storage()
   rescan_all()
@@ -695,26 +921,41 @@ script.on_configuration_changed(function()
   rescan_all()
 end)
 
-script.on_event(defines.events.on_built_entity, on_entity_built)
-script.on_event(defines.events.on_robot_built_entity, on_entity_built)
-script.on_event(defines.events.script_raised_built, on_entity_built)
-script.on_event(defines.events.script_raised_revive, on_entity_built)
-script.on_event(defines.events.on_entity_cloned, on_entity_built)
+safe_on_event(defines.events.on_built_entity, on_entity_built)
+safe_on_event(defines.events.on_robot_built_entity, on_entity_built)
+safe_on_event(defines.events.script_raised_built, on_entity_built)
+safe_on_event(defines.events.script_raised_revive, on_entity_built)
+safe_on_event(defines.events.on_entity_cloned, on_entity_built)
+safe_on_event(defines.events.on_space_platform_built_entity, on_entity_built)
 
-script.on_event(defines.events.on_pre_player_mined_item, on_entity_removed)
-script.on_event(defines.events.on_robot_pre_mined, on_entity_removed)
-script.on_event(defines.events.on_entity_died, on_entity_removed)
-script.on_event(defines.events.script_raised_destroy, on_entity_removed)
+safe_on_event(defines.events.on_pre_player_mined_item, on_entity_removed)
+safe_on_event(defines.events.on_robot_pre_mined, on_entity_removed)
+safe_on_event(defines.events.on_entity_died, on_entity_removed)
+safe_on_event(defines.events.script_raised_destroy, on_entity_removed)
+safe_on_event(defines.events.on_space_platform_pre_mined, on_entity_removed)
+
+-- Re-register after rotation/flip/blueprint paste so vent offsets stay correct after 2.1
+-- blueprint and entity-orientation operations.
+safe_on_event(defines.events.on_player_rotated_entity, on_entity_built)
+safe_on_event(defines.events.on_player_flipped_entity, on_entity_built)
+safe_on_event(defines.events.on_blueprint_settings_pasted, on_entity_built)
+
+-- New/imported/cleared surfaces can appear in Space Age saves and map-editor workflows.
+safe_on_event(defines.events.on_surface_created, on_surface_added)
+safe_on_event(defines.events.on_surface_imported, on_surface_added)
+safe_on_event(defines.events.on_surface_cleared, prune_invalid_entities)
+safe_on_event(defines.events.on_surface_deleted, prune_invalid_entities)
 
 script.on_event(defines.events.on_runtime_mod_setting_changed, function(event)
   if event.setting and string.sub(event.setting, 1, 11) == "real-steam-" then
-    ensure_storage()
-    rescan_all()
+    -- Only inclusion settings change the tracked set. Density, quality, weather,
+    -- and the master toggle are read directly and do not need a world rescan.
+    if event.setting == "real-steam-include-boilers" or
+       event.setting == "real-steam-include-pipes" then
+      ensure_storage()
+      rescan_all()
+    end
   end
-end)
-
-script.on_nth_tick(1800, function()
-  rescan_all()
 end)
 
 script.on_nth_tick(6, function(event)

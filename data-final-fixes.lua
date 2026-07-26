@@ -21,8 +21,14 @@ local function patch_boiler_smoke(boiler)
   end
 end
 
+local SUPPORTED_BOILER_NAMES = {
+  "boiler",
+  "heat-exchanger",
+  "copper-boiler"
+}
+
 if data.raw["boiler"] then
-  for _, boiler in pairs(data.raw["boiler"]) do
-    patch_boiler_smoke(boiler)
+  for _, name in ipairs(SUPPORTED_BOILER_NAMES) do
+    patch_boiler_smoke(data.raw["boiler"][name])
   end
 end
