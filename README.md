@@ -1,195 +1,103 @@
-[![Factorio 2.0](https://img.shields.io/badge/Factorio-2.0%20Ready-orange?style=flat-square)](https://factorio.com/)[![Mod Version](https://img.shields.io/factorio-mod-portal/v/real-steam?label=Version\&style=flat-square\&color=2ea44f)](https://mods.factorio.com/mod/real-steam)[![Downloads](https://img.shields.io/factorio-mod-portal/dt/real-steam?label=Downloads\&style=flat-square\&color=brightgreen)](https://mods.factorio.com/mod/real-steam)[![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-181717?style=flat-square\&logo=github)](https://github.com/SquishyPoos1870/-Real-Steam)[![License GPLv3](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)[![Support](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-ffdd00?style=flat-square\&logo=buymeacoffee\&logoColor=black)](https://buymeacoffee.com/camgrieve11)
+# Real Steam
 
-![Real Steam Main Banner](https://raw.githubusercontent.com/SquishyPoos1870/LOGO/main/Real%20Steam%20BAnner.png)
+**Real Steam** adds extra steam ambience to boilers, steam engines, steam turbines, heat exchangers, steam pipes, IR3 steamworks equipment, and supported Krastorio 2 steam equipment so your factory feels more alive.
 
-# 💨 Real Steam
+Instead of everything looking perfectly sealed and static, steam systems can now hiss, vent, and leak lightly under pressure.
 
-**Real Steam** adds extra steam ambience to boilers, steam engines, steam turbines, heat exchangers, and steam pipes so your factory feels more alive, mechanical, and industrial.
-
-Instead of steam systems looking perfectly sealed and static, your factory can now show subtle hissing, venting, pipe leaks, pressure vapour, and working-machine steam effects.
-
-Build cleaner. Feel more industry. Keep your steam setups looking active without turning your whole base into a giant white cloud.
+Build cleaner. Feel more industry. Keep your steam setups looking active and believable.
 
 ---
 
-## 🎬 Demo Video
+## 🎥 Demo Video
 
-![Real Steam Demo](https://github.com/SquishyPoos1870/-Real-Steam/raw/main/Factorio%202026.06.13%20-%2018.35.53.02.mp4)
+![Real Steam demo](https://raw.githubusercontent.com/SquishyPoos1870/-Real-Steam/main/Factorio%202026.06.13%20-%2018.35.53.02.mp4)
 
-If the video does not load on the mod portal, open it here:
-
-[▶️ Watch Real Steam Demo on GitHub](https://github.com/SquishyPoos1870/-Real-Steam/raw/main/Factorio%202026.06.13%20-%2018.35.53.02.mp4)
+Watch **Real Steam** in action with extra steam ambience, pipe hiss, and subtle industrial venting.
 
 ---
 
 ## ⚙️ What It Does
 
-Real Steam gives your steam-based machines and pipe networks extra visual life.
+**Real Steam** gives your steam-based machines and pipes extra visual life.
 
-Boilers, heat exchangers, steam engines, and steam turbines can emit additional steam effects while working. Steam pipes can also show small leaks, hiss points, and venting around pressure-heavy areas such as pipe-to-ground joins.
+Boilers, heat exchangers, steam engines, and steam turbines can emit additional steam effects while working. Steam pipes can also show small leaks and vent points, especially around heavier pressure areas like pipe-to-ground joins.
 
-The goal is not to spam effects everywhere. Real Steam is designed to stay close to Factorio’s normal style while making steam systems feel more believable, active, and alive.
+The goal is not to turn your base into a smoke cloud — it is to make steam systems feel more mechanical, active, and believable while still fitting the normal Factorio style.
 
-Higher-quality equipment can also look cleaner. When quality support is enabled, better-quality steam equipment produces fewer visible leaks, making upgraded machines feel better built and better maintained.
-
-Real Steam also supports optional interaction with other Real-series mods:
-
-* **Real Rain** can make steam feel wetter and more atmospheric during storms
-* **Real Wind** can push steam wisps and vapour sideways during gusts
-* **Real Smoke** can run beside Real Steam for a fuller industrial atmosphere
-
-Real Steam works perfectly fine by itself. The other Real mods are optional.
+This Factorio 2.1 version includes cleaner runtime handling, improved rescanning, better entity tracking, and more controlled leak behaviour so the effect stays immersive without becoming messy.
 
 ---
 
 ## ✅ Features
 
-* 💨 Extra steam ambience for working steam systems
-* 🔥 Boiler steam effects
-* ♨️ Heat exchanger steam effects
-* ⚙️ Steam engine ambience
-* 🌀 Steam turbine ambience
-* 🔧 Optional steam pipe leaks
-* 🧩 Pipe-to-ground joins can act as natural leak points
-* 🌫️ Fuller steam systems can vent more heavily
-* ⭐ Higher-quality equipment can produce fewer visible leaks
-* 🔥 Optional boiler smoke replacement
-* ⚙️ Runtime settings for effect density and enabled sources
-* ♻️ Clean entity tracking for built, mined, destroyed, cloned, and revived entities
-* 🔄 Includes `/real-steam-rescan` admin command
-* 🌧️ Optional Real Rain interaction
-* 🌬️ Optional Real Wind interaction
-* 💨 Works well beside Real Smoke
-* ✅ Visual-only gameplay
-* ✅ Factorio 2.0 compatible
-* 🛰️ Space Age friendly
-* 🧩 Safe to use by itself or with the other Real mods
+- 💨 Extra steam ambience for:
+  - Boilers
+  - Heat Exchangers
+  - Steam Engines
+  - Steam Turbines
+
+- 🔧 Optional steam pipe leaks
+- ⭐ Higher-quality equipment can show fewer visual steam leaks
+- 🔥 Optional boiler smoke replacement
+- 🌫️ Fuller steam systems can vent a bit more heavily
+- 🧩 Pipe-to-ground joins can act as natural leak points
+- ⚙️ Runtime settings for effect density and enabled sources
+- ♻️ Clean entity tracking for built, mined, destroyed, cloned, and revived entities
+- 🔄 Includes `/real-steam-rescan` admin command
+- ✅ Factorio 2.1 compatible
+- 🧼 Cleaned and repackaged for modern Factorio
+- 🛡️ Hardened event tracking for Factorio 2.1 build, rotation, blueprint, and Space Platform workflows
 
 ---
 
-## ⭐ Quality Support
+## 🧩 IR3 Assets: steamworks compatibility
 
-Real Steam can optionally reduce visible steam leaks based on machine quality.
+Real Steam now has optional support for **IR3 Assets: steamworks**. When that mod is installed, Real Steam can track its steam pipes, steam pipe-to-ground variants, copper boiler, steam pump, steam tank, and steam-powered machines without requiring IR3 assets to be bundled inside Real Steam.
 
-Better-quality machines are treated as cleaner, tighter, and better maintained, so they produce fewer visual leaks and smaller steam wisps.
+This is only a compatibility layer; Real Steam does **not** include or redistribute IR3 graphical assets.
 
-| Quality       | Visual Leak Behaviour                  |
-| ------------- | -------------------------------------- |
-| **Normal**    | Full Real Steam leak behaviour         |
-| **Uncommon**  | Slightly reduced leak visuals          |
-| **Rare**      | Cleaner and less frequent leak visuals |
-| **Epic**      | Very subtle leaks                      |
-| **Legendary** | Almost no visible leaks                |
+---
 
-This is visual-only. It does not change machine stats, recipes, pollution, power, fluids, or progression.
+## 🧩 Krastorio 2 compatibility
 
-If quality data is not available, entities are treated as normal quality.
+Real Steam now has optional support for **Krastorio 2**. When K2 is installed, Real Steam can track K2's advanced steam turbine, steel pipe, steel pipe-to-ground, steel pump, and large storage tanks when they contain steam.
+
+The K2 gas power station is intentionally not treated as a steam machine because it is a fluid-fuel generator rather than a steam system.
+
+This is only a compatibility layer; Real Steam does **not** include or redistribute Krastorio 2 graphical assets.
 
 ---
 
 ## 🛠️ Settings
 
-Real Steam includes runtime settings so you can tune the look and performance to match your factory.
+This mod includes runtime settings so you can tune the look to your liking:
 
-| Setting                         | What It Does                                                   |
-| ------------------------------- | -------------------------------------------------------------- |
-| **Steam Density**               | Controls how strong and frequent the extra steam effects are   |
-| **Include Boilers**             | Enables extra steam effects for boilers                        |
-| **Include Steam Pipes**         | Enables steam leaks and hiss effects on pipes                  |
-| **Replace Boiler Smoke**        | Replaces the default boiler smoke style with the modded effect |
-| **Quality Reduces Steam Leaks** | Makes higher-quality equipment show fewer visible leaks        |
+| Setting | What It Does |
+|---|---|
+| Steam Density | Controls how strong and frequent the extra effects are |
+| Include Boilers | Enables extra steam effects for boilers |
+| Include Steam Pipes | Enables steam leaks/hiss effects on pipes |
+| Quality Reduces Steam Leaks | Makes uncommon, rare, epic, and legendary steam equipment look progressively cleaner |
+| Replace Boiler Smoke | Replaces the default boiler smoke style with the modded effect |
 
----
+**Recommended starting point:**
 
-## 🌫️ Steam Density Options
+- Steam Density: **Balanced**
+- Include Boilers: **On**
+- Include Steam Pipes: **On**
+- Replace Boiler Smoke: **Off**
 
-| Option        | Description                                                   |
-| ------------- | ------------------------------------------------------------- |
-| **Subtle**    | Very light steam, best for large factories or weaker systems  |
-| **Balanced**  | Recommended default; visible but not messy                    |
-| **Heavy**     | More noticeable venting for a stronger industrial feel        |
-| **Cinematic** | Stronger steam atmosphere for screenshots and dramatic builds |
-
----
-
-## ⭐ Recommended Settings
-
-For a clean, believable industrial look:
-
-| Setting                         | Recommended Value |
-| ------------------------------- | ----------------- |
-| **Steam Density**               | Balanced          |
-| **Include Boilers**             | On                |
-| **Include Steam Pipes**         | On                |
-| **Replace Boiler Smoke**        | Off               |
-| **Quality Reduces Steam Leaks** | On                |
-
-This gives a natural steam feel without making your factory look too cloudy.
-
-For stronger screenshots or cinematic factories:
-
-| Setting                         | Recommended Value            |
-| ------------------------------- | ---------------------------- |
-| **Steam Density**               | Heavy or Cinematic           |
-| **Include Boilers**             | On                           |
-| **Include Steam Pipes**         | On                           |
-| **Replace Boiler Smoke**        | On or Off depending on taste |
-| **Quality Reduces Steam Leaks** | On                           |
-
-For large factories or multiplayer:
-
-| Setting                         | Recommended Value |
-| ------------------------------- | ----------------- |
-| **Steam Density**               | Subtle            |
-| **Include Boilers**             | On                |
-| **Include Steam Pipes**         | Off or On         |
-| **Replace Boiler Smoke**        | Off               |
-| **Quality Reduces Steam Leaks** | On                |
+This gives a cleaner, more natural industrial look.
 
 ---
 
 ## 🧪 Behaviour Notes
 
-* Steam engines and turbines only emit extra steam when they are actually working
-* Boilers and heat exchangers can add extra ambience while active
-* Pipe leaks are meant to be subtle and atmospheric, not constant across every pipe
-* Pipe-to-ground sections are more likely to show light venting or hiss points
-* Higher-quality equipment can appear cleaner with fewer visible leaks
-* The mod is designed to stay lightweight and practical for normal gameplay
-* Wind and storms can push steam more naturally when **Real Wind** is installed
-* Rain and storm conditions can add atmosphere when **Real Rain** is installed
-* The mod is visual-only and does not affect recipes, stats, pollution, power, fluids, or progression
-
----
-
-## 🔗 Compatibility
-
-Real Steam is designed to work well by itself, but it can also optionally interact with other Real-series mods.
-
-### Works on its own
-
-You do **not** need any other mod installed for Real Steam to work.
-
-### Optional linked behaviour
-
-If other compatible mods are installed, Real Steam can react to them automatically:
-
-* **Real Rain**
-  Rain and storms can make steam systems feel wetter and more atmospheric.
-
-* **Real Wind**
-  Wind and storm gusts can pull steam wisps sideways for a more natural look.
-
-* **Real Smoke**
-  Pairs well visually with Real Steam for a fuller industrial factory atmosphere.
-
-### Quality support
-
-If quality data is available, Real Steam can use it to reduce visual leaks on better-quality equipment.
-
-This keeps the mod flexible:
-
-**Great alone. Even better together.**
+- Steam engines and turbines only emit extra steam when they are actually working.
+- If Quality scaling is enabled, normal quality keeps the standard effect while uncommon, rare, epic, and legendary equipment emits fewer visual leaks.
+- Pipe leaks are meant to be subtle and atmospheric, not constant across every pipe.
+- Pipe-to-ground sections are more likely to show light venting or hiss points.
+- The mod is designed to stay lightweight and practical for normal gameplay.
 
 ---
 
@@ -197,51 +105,60 @@ This keeps the mod flexible:
 
 If your steam network ever needs to be rebuilt or refreshed, you can run:
 
-```txt
+```text
 /real-steam-rescan
 ```
 
-This forces Real Steam to rescan valid steam entities.
+This forces the mod to rescan valid steam entities.
 
 ---
 
 ## 📌 Design Goal
 
-The aim of Real Steam is to make steam builds feel more alive without going over the top.
+The aim of **Real Steam** is to make steam builds feel more alive without going over the top.
 
-It is meant to sit somewhere between vanilla Factorio and a more immersive industrial look:
+It is meant to sit somewhere between **vanilla Factorio** and a more immersive industrial look:
 
-* More active than vanilla
-* More believable than random puffs everywhere
-* Still clean enough to use in real factories
-* Tunable for performance or atmosphere
-* Cleaner-looking when using higher-quality equipment
-* Stronger when combined with the other Real mods
-
----
-
-## ☕ Support
-
-Enjoying the mod and want to support my work?
-
-You can buy me a coffee here:
-
-[☕ Buy Me a Coffee](https://buymeacoffee.com/camgrieve11)
-
-Any support helps me keep improving and polishing my Factorio mods.
+- more active than vanilla
+- more believable than random puffs everywhere
+- still clean enough to use in real factories
 
 ---
 
 ## 🙏 Credits
 
-Mod maintained and polished by **Squishy1870**.
+- Mod maintained and polished by **Squishy1870**
+- Built using Factorio base-game smoke prototypes as the foundation for custom steam-style vapour effects
 
-Built using Factorio base-game smoke prototypes as the foundation for custom steam-style vapour effects.
+Factorio is made by Wube Software. This is an independent fan-made mod and is not affiliated with or endorsed by Wube Software.
 
-Factorio is made by **Wube Software**. This is an independent fan-made mod and is not affiliated with or endorsed by Wube Software.
 
 ---
 
+## 📦 Package Notes
+
+This package includes:
+
+- `info.json`
+- `control.lua`
+- `data.lua`
+- `data-final-fixes.lua`
+- runtime/startup settings
+- English locale text
+- thumbnail
+- changelog
+- credits
+- license
+- Mod Portal description file
+
 ## 📜 License
 
-**GNU General Public License v3.0**
+This mod is licensed under the **GNU General Public License v3.0**. See `LICENSE` for the full license text.
+
+## Optional Quality Scaling
+
+When Space Age / Quality is active, Real Steam can make better-quality steam equipment look better built. Normal quality keeps the standard steam leak visuals. Uncommon, rare, epic, and legendary quality progressively reduce visible puffs and pipe wisps. This is controlled by the **Quality reduces steam leaks** runtime setting.
+
+## Optional Weather/Wind Integration
+
+Real Steam can read Real Rain and Real Wind when they are installed. Storms and gusts pull vapour harder and switch pipe wisps to wind-aware variants. Real Steam still works by itself if the weather mods are not installed.

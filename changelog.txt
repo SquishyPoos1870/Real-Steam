@@ -1,3 +1,79 @@
+Version: 1.0.25
+Date: 2026-07-27
+  Bugfixes:
+    - Migrated steam amount and fluid-storage detection to Factorio 2.1's get_fluid_count and get_fluid_capacity runtime APIs.
+    - Restored pipe leaks and steam engine/turbine effects that silently stopped after the LuaEntity fluidbox property was removed.
+    - Prevented fluid-powered compatibility machines from bypassing their steam-content check when running on Factorio 2.1.
+    - Restored current Real Rain integration by reading its is_raining and stage remote calls.
+  Compatibility:
+    - Kept support for older Real Rain builds that expose the legacy get_weather remote call.
+    - Updated the homepage metadata to the current Real Steam repository URL.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.24
+Date: 2026-07-19
+  Bugfixes:
+    - Replaced the unavailable generator output property with Factorio 2.1's energy_generated_last_tick API so idle and disconnected generators stay quiet.
+    - Applied Quality leak scaling once per pipe emission instead of reducing the same primary leak twice.
+    - Restricted startup boiler smoke replacement to explicitly supported boiler prototypes instead of altering every modded boiler.
+  Performance:
+    - Empty and non-steam pipes now use a bounded probe budget instead of consuming active steam-effect slots.
+    - Surface creation/import scans only the affected surface, while cleared/deleted surfaces prune invalid tracking entries without rescanning the world.
+    - Runtime setting changes only rescan when boiler or pipe inclusion changes.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.23
+Date: 2026-06-28
+  Performance:
+    - Removed the unconditional full-surface entity rescan that ran every 60 seconds and could freeze large factories for several seconds.
+    - Real Steam now relies on its existing build, removal, surface, configuration, and manual rescan hooks to keep entity tracking current.
+    - Stale tracking keys are compacted only when encountered instead of being tied to the old full-rescan interval.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.22
+Date: 2026-06-25
+  Compatibility:
+    - Updated package metadata for Factorio 2.1.
+    - Updated base dependency to require Factorio/base 2.1.0 or newer.
+    - Kept Space Age, Real Rain, Real Wind, IR3 Assets: steamworks, and Krastorio 2 integrations optional.
+  Changes:
+    - Added guarded event registration so Real Steam does not hard fail if a 2.1 experimental event differs or is unavailable.
+    - Added tracking hooks for Space Platform entity build/remove workflows.
+    - Added refresh hooks for rotation, flipping, and blueprint settings paste events so vent offsets stay correct after entity orientation changes.
+    - Added surface rescan hooks for created, imported, cleared, and deleted surfaces.
+    - Relaxed the fallback full-rescan interval from 30 seconds to 60 seconds to reduce large-base scan cost.
+  Notes:
+    - No balance change to steam visuals. This is a 2.1 compatibility and safety pass.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.21
+Date: 20. 06. 2026
+  Compatibility:
+    - Added optional Krastorio 2 support.
+    - Tracks K2 advanced steam turbine, steel steam-capable pipes, steel pipe-to-ground, steel pump, and large storage tanks when they contain steam.
+    - Added optional dependency on Krastorio2 without bundling or redistributing K2 assets.
+  Notes:
+    - K2 gas power station is intentionally not included because it is a fluid-fuel generator, not a steam machine.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.20
+Date: 2026-06-20
+  Changes:
+    - Version bump for the IR3 Assets: steamworks compatibility package.
+    - Keeps the 1.0.19 IR3 steam pipe, boiler, pump, tank, and steam machine support intact.
+  Notes:
+    - No gameplay balance changes.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.19
+Date: 2026-06-20
+  Compatibility:
+    - Added optional support for IR3 Assets: steamworks.
+    - Real Steam now tracks IR3 steam pipes, steam pipe-to-ground variants, copper boilers, steam pumps, steam tanks, and steam-powered machines.
+    - Added safer fluidbox handling for modded entities that may not expose vanilla steam fluidboxes.
+  Changes:
+    - Rescan logic now scans the full Real Steam target type list instead of only vanilla steam entity types.
+
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.18
 Date: 2026-06-20

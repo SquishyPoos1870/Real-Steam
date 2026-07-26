@@ -2,7 +2,7 @@
 
 Real Steam by Squishy1870.
 
-Built for Factorio 2.0 as a lightweight visual ambience mod for steam engines, steam turbines, boilers, heat exchangers, and steam pipes.
+Built for Factorio 2.1 as a lightweight visual ambience mod for steam engines, steam turbines, boilers, heat exchangers, and steam pipes.
 
 Uses Factorio base-game smoke prototypes as the foundation for custom steam-style vapour prototypes.
 
